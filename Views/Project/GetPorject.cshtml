@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Project_Management.Models.Projects.Project>
+@{
+    ViewData["Title"] = "GetProject";
+}
+<style>
+    body {
+        background-image: url('https://colorate.azurewebsites.net/SwatchColor/121423'); /* Replace 'path/to/your/image.jpg' with the path to your image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .white-background {
+        color: white;
+    }
+
+    .table thead th:nth-child(1),
+    .table tbody td:nth-child(1)
+    {
+        width:10%;
+    }
+    .table thead th:nth-child(2),
+    .table tbody td:nth-child(2)
+    {
+        width:15%;
+    }
+    .table thead th:nth-child(3),
+    .table tbody td:nth-child(3)
+    {
+        width:30%; /* Adjust the value as needed */
+    }
+
+    .table thead th:nth-child(4),
+    .table tbody td:nth-child(4)
+    {
+        width: 20%;
+    }
+
+    .table thead th:nth-child(5)
+    .table tbody td:nth-child(5) {
+        width: 25%; /* Adjust the value as needed */
+    }
+
+</style>
+<p>
+    <a asp-action="AddPorject" class="btn btn-success">Add Porject</a>
+    <a asp-controller="License" asp-action="GetLicense" class="btn btn-success">View Licenses</a>
+</p>
+<table class="table">
+    <thead>
+        <tr style="background-color: #e2642b">
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Project_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Project_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Start_Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="white-background">
+                    @Html.DisplayFor(modelItem => item.Project_Id)
+                </td>
+                <td class="white-background">
+                    @Html.DisplayFor(modelItem => item.Project_name)
+                </td>
+                <td class="white-background">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="white-background">
+                    @Html.DisplayFor(modelItem => item.Start_Date)
+                </td>
+                <td>
+                    <a asp-action="UpdatePorject" asp-route-id="@item.Id" class="btn btn-outline-light">Edit</a>
+                    <form asp-action="DeletePorject" method="post" asp-route-id="@item.Id" class="d-inline">
+                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete @item.Project_name ?')">Delete
+                        </button>
+                    </form>
+                    <a asp-controller="License" asp-action="AddLicense" asp-route-id="@item.Id" class="btn btn-secondary">Add License</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

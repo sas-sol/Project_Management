@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Project_Management.Models.Projects.License>
+@{
+    ViewData["Title"] = "GetLicense";
+}
+<style>
+    body {
+        background-image: url('https://colorate.azurewebsites.net/SwatchColor/121423'); /* Replace 'path/to/your/image.jpg' with the path to your image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .white-background {
+        color: white;
+    }
+
+    .table thead th:nth-child(1),
+    .table tbody td:nth-child(1) {
+        width: 100px;
+    }
+
+    .table thead th:nth-child(2),
+    .table tbody td:nth-child(2) {
+        width: 250px;
+    }
+
+    .table thead th:nth-child(3),
+    .table tbody td:nth-child(3) {
+        width: 300px; /* Adjust the value as needed */
+    }
+
+    .table thead th:nth-child(4),
+    .table tbody td:nth-child(4) {
+        width: 15%;
+    }
+
+</style>
+<table class="table">
+    <thead>
+        <tr style="background-color: #e2642b">
+
+            <th>
+                @Html.DisplayNameFor(model => model.Project_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expiry_Date)
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="white-background">
+                    @Html.DisplayFor(modelItem => item.Project_id)
+                </td>
+                <td class="white-background">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="white-background">
+                    @Html.DisplayFor(modelItem => item.Expiry_Date)
+                </td>
+                <td>
+                    <a asp-action="UpdateLicense" asp-route-id="@item.Id" class="btn btn-outline-light">Edit</a>
+                    <form asp-action="DeleteLicense" method="post" asp-route-id="@item.Id" class="d-inline">
+                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete @item.Name ?')">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

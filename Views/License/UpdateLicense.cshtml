@@ -1,0 +1,49 @@
+﻿@model Project_Management.Models.Projects.License
+@{
+    ViewData["Title"] = "AddProject";
+}
+
+<style>
+    body {
+        background-image: url('https://colorate.azurewebsites.net/SwatchColor/121423'); /* Replace 'path/to/your/image.jpg' with the path to your image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    /*body { background-image: url('path/to/your/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual image file path */ /*background-size: cover;*/ /* Adjust how the background image is displayed */ /* background-repeat: no-repeat;} */
+    .rounded-button {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%; /* Set border radius to 50% to create a circular button */
+        padding: 10px; /* Add padding for spacing within the circular button */
+    }
+
+    .custom-btn {
+        background-color: antiquewhite; /* Replace with your desired background color */
+        color: black; /* Replace with your desired text color */
+        /* Add any other custom styling you need */
+    }
+</style>
+<div class="container">
+    <div class="row mt-lg-5">
+        <div class="col-4 offset-4 border rounded p-lg-4" style="background-color: #e2642b; margin-top: -30px;">
+            <div class="text-center">
+            </div>
+            <form method="post" asp-action="UpdateLicense">
+                <div class="form-group">
+                    <h6>Project Name</h6>
+                    <input type="text" asp-for="Name" placeholder="Enter license name" class="form-control" autocomplete="off" />
+                </div>
+                <div><h5>  </h5></div>
+                <div class="form-group">
+                    <h6>Description</h6>
+                    <input type="date" asp-for="Expiry_Date" placeholder="Enter expiry date" class="form-control" autocomplete="off" />
+                </div>
+                <div><h2>  </h2></div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-dark float-lg-end" value="ADD" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
