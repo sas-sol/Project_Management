@@ -4,16 +4,12 @@
 }
 <style>
     body {
-        background-image: url('https://colorate.azurewebsites.net/SwatchColor/121423'); /* Replace 'path/to/your/image.jpg' with the path to your image */
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
+        background-color: #121423;
     }
 
     .white-background {
         color: white;
     }
-
     .table thead th:nth-child(1),
     .table tbody td:nth-child(1)
     {
@@ -27,18 +23,18 @@
     .table thead th:nth-child(3),
     .table tbody td:nth-child(3)
     {
-        width:30%; /* Adjust the value as needed */
+        width:25%; /* Adjust the value as needed */
     }
 
     .table thead th:nth-child(4),
     .table tbody td:nth-child(4)
     {
-        width: 20%;
+        width: 15%;
     }
 
     .table thead th:nth-child(5)
     .table tbody td:nth-child(5) {
-        width: 25%; /* Adjust the value as needed */
+        width: 35%; /* Adjust the value as needed */
     }
     .btn-color{
         background-color: antiquewhite
@@ -91,6 +87,7 @@
                         </button>
                     </form>
                     <a asp-controller="License" asp-action="AddLicense" asp-route-id="@item.Id" class="btn btn-secondary">Add License</a>
+                    <a  asp-action="ProjectDetails" asp-route-id="@item.Id" class="btn btn-secondary">Details</a>
                 </td>
             </tr>
         }

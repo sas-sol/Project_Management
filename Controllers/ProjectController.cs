@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Project_Management.Data;
 using Project_Management.Models.Projects;
+using Project_Management.Models.ViewModels;
 using System.Diagnostics.Metrics;
 using System.Security.Claims;
 
@@ -70,6 +71,11 @@ namespace Project_Management.Controllers
                 if (record != null)
                 {
                     _context.Remove(record);
+                    var license = _context.License.Where(l => l.Project_id == record.Project_Id).FirstOrDefault();
+                    if (license != null)
+                    {
+                        _context.Remove(license);
+                    }
                     _context.SaveChanges();
                     return RedirectToAction("GetPorject");
                 }
@@ -143,6 +149,40 @@ namespace Project_Management.Controllers
                 TempData["errorMessage"] = "An error occurred while retrieving projects.";
                 return View(TempData);
             }
+        }
+
+        [HttpGet]
+        public IActionResult ProjectDetails(int id)
+        {
+            try
+            {
+             var projects = _context.Project.Where( p => p.Id == id).FirstOrDefault();
+             var licenses = _context.License.Where( l => l.Project_id == projects.Project_Id ).FirstOrDefault();
+                if (licenses != null) {
+                    var details = new ProjectLicense
+                    {
+                        project = projects,
+                        license = licenses,
+                    };
+                    return View(details);
+                }
+                else
+                {
+                    var details = new ProjectLicense
+                    {
+                        project = projects,
+                        license = null,
+                    };
+                    return View(details);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = "An error occurred while retrieving project and license details.";
+                return View(TempData);
+            }
+            return View();
         }
     }
 }
