@@ -5,6 +5,22 @@
       "PackagePath": "staticwebassets\\Project_Management.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\Datatable\\jquery.dataTables.js",
+      "PackagePath": "staticwebassets\\Datatable\\jquery.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\Datatable\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\Datatable\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\css\\DatatableCss\\jquery.dataTables.css",
+      "PackagePath": "staticwebassets\\css\\DatatableCss\\jquery.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\css\\DatatableCss\\jquery.dataTables.min.css",
+      "PackagePath": "staticwebassets\\css\\DatatableCss\\jquery.dataTables.min.css"
+    },
+    {
       "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -15,6 +31,10 @@
     {
       "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\images\\istockphoto-1341104538-612x612.jpg",
       "PackagePath": "staticwebassets\\images\\istockphoto-1341104538-612x612.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\js\\datatable_file.js",
+      "PackagePath": "staticwebassets\\js\\datatable_file.js"
     },
     {
       "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\js\\site.js",

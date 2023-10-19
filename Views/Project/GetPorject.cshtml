@@ -40,13 +40,16 @@
     .table tbody td:nth-child(5) {
         width: 25%; /* Adjust the value as needed */
     }
+    .btn-color{
+        background-color: antiquewhite
+    }
 
 </style>
 <p>
     <a asp-action="AddPorject" class="btn btn-success">Add Porject</a>
     <a asp-controller="License" asp-action="GetLicense" class="btn btn-success">View Licenses</a>
 </p>
-<table class="table">
+<table class="table" id="dataTableData">
     <thead>
         <tr style="background-color: #e2642b">
             
@@ -93,4 +96,6 @@
         }
     </tbody>
 </table>
-
+@section scripts{
+    <script src="~/js/datatable_file.js"></script>
+}
