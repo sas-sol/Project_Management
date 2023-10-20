@@ -2,12 +2,33 @@
 @{
     ViewData["Title"] = "ProjectDetails";
 }
+<script src="@Url.Content("~/js/particles.js")"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-    body {
+    #particles-js {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
         background-color: #121423;
     }
 
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+
 </style>
+<div id="particles-js">
+</div>
 <div class="d-flex justify-content-center min-vh-50">
     <div class="card bg-light mb-3" style="width:50rem; margin-top:50px;">
         <div class="card-header" style="text-align:center;">Project Details</div>
@@ -67,3 +88,32 @@
         </div>
     </div>
 </div>
+<script>
+
+    //document.addEventListener("DOMContentLoaded", function () {
+    // particlesJS initialization here...
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80
+            },
+            color: {
+                value: '#ffffff'
+            },
+            size: {
+                value: 3
+            }
+        },
+        interactivity: {
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'grab'
+                }
+            }
+        }
+    });
+
+        //});
+
+</script>

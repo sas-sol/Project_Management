@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4Cn0Uw51HmOwuolEe1fRvFWQYX3WhE1nI4SRz40AQSc=",
+  "Hash": "mRFcjYV0da2Xtv04TvpjIH/Jfqs32kbU7OkYBHh5ObU=",
   "Source": "Project_Management",
   "BasePath": "_content/Project_Management",
   "Mode": "Default",
@@ -170,6 +170,23 @@
       "OriginalItemSpec": "wwwroot\\images\\istockphoto-1341104538-612x612.jpg"
     },
     {
+      "Identity": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\js\\app.js",
+      "SourceId": "Project_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Management",
+      "RelativePath": "js/app.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\app.js"
+    },
+    {
       "Identity": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\js\\datatable_file.js",
       "SourceId": "Project_Management",
       "SourceType": "Discovered",
@@ -185,6 +202,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\datatable_file.js"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\js\\particles.js",
+      "SourceId": "Project_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Management",
+      "RelativePath": "js/particles.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\particles.js"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\js\\particles.min.js",
+      "SourceId": "Project_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Management",
+      "RelativePath": "js/particles.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\particles.min.js"
     },
     {
       "Identity": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\js\\site.js",

@@ -47,5 +47,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=FrontPage}/{id?}");
-
+using (var scopes = builder.Services.BuildServiceProvider().CreateScope())
+{
+    var context = scopes.ServiceProvider.GetRequiredService<ProjectContext>();
+    DbSeeder.SeedData(context);
+}
 app.Run();
