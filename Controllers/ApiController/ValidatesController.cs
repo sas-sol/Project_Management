@@ -28,7 +28,10 @@ namespace Project_Management.Controllers.ApiController
                     {
                         return true;
                     }
-                    return false;
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
