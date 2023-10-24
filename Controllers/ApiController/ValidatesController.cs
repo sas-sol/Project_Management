@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Project_Management.Data;
+using Project_Management.Models.Projects;
 
 namespace Project_Management.Controllers.ApiController
 {
@@ -16,7 +17,7 @@ namespace Project_Management.Controllers.ApiController
         {
             _context = context;
         }
-        [HttpGet("{id}")]
+        [HttpGet("validate/{id}")]
         public bool validateLicense(string id)
         {
             try
@@ -44,7 +45,25 @@ namespace Project_Management.Controllers.ApiController
                 return false;
             }
 
+        }
+        [HttpGet("GetUrl/{id}")]
+        public IActionResult GetUrl(int id)
+        {
+           try
+            {
+                var data = _context.ProjectApiUrl.Where(p => p.id == id).FirstOrDefault();
+                if (data != null)
+                {
+                    string url = data.Project_Id + "," + data.Api_Url;
+                    return Content(url);
+                }
 
+                return Content("Record Not Found");
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Project_Management.Data
         public DbSet<Project_Management.Models.Account.Users> Users { get; set; } = default!;
         public DbSet<Project_Management.Models.Projects.Project> Project { get; set; } = default!;
         public DbSet<Project_Management.Models.Projects.License> License { get; set; } = default!;
+        public DbSet<Project_Management.Models.Projects.ProjectApiUrl> ProjectApiUrl { get; set; } = default!;
     }
 }
 
