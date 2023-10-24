@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Project_Management.Data;
+using Project_Management.Models.Account;
 using Project_Management.Models.Projects;
 using Project_Management.Models.ViewModels;
 using System.Diagnostics.Metrics;
@@ -22,7 +23,14 @@ namespace Project_Management.Controllers
         [HttpGet]
         public IActionResult AddPorject()
         {
-            return View("AddProject");
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
+            if (User.Identity.IsAuthenticated)
+            {
+                return View("AddProject");
+            }
+            return NotFound();
         }
         //Add license to database
         [HttpPost]
@@ -91,12 +99,19 @@ namespace Project_Management.Controllers
         [HttpGet]
         public IActionResult UpdatePorject(int id)
         {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
             try
             {
-                var project = _context.Project.Where(p => p.Id == id).FirstOrDefault();
-                if (project != null)
+                if (User.Identity.IsAuthenticated)
                 {
-                    return View(project);
+                    var project = _context.Project.Where(p => p.Id == id).FirstOrDefault();
+                    if (project != null)
+                    {
+                        return View(project);
+                    }
+                    return NotFound();
                 }
                 return NotFound();
             }
@@ -130,6 +145,9 @@ namespace Project_Management.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPorject()
         {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
             try
             {
                 string userId = null;
@@ -137,12 +155,13 @@ namespace Project_Management.Controllers
                 {
 
                     userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    int userId1;
+                    int.TryParse(userId, out userId1);
+                    var projects = await _context.Project.Where(tm => tm.User_Id == userId1).ToListAsync();
+
+                    return View(projects);
                 }
-                int userId1;
-                int.TryParse(userId, out userId1);
-                var projects = await _context.Project.Where(tm => tm.User_Id == userId1).ToListAsync();
-               
-                return View(projects);
+               return NotFound();
             }
             catch (Exception ex)
             {
@@ -154,28 +173,35 @@ namespace Project_Management.Controllers
         [HttpGet]
         public IActionResult ProjectDetails(int id)
         {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
             try
             {
-             var projects = _context.Project.Where( p => p.Id == id).FirstOrDefault();
-             var licenses = _context.License.Where( l => l.Project_id == projects.Project_Id ).FirstOrDefault();
-                if (licenses != null) {
-                    var details = new ProjectLicense
-                    {
-                        project = projects,
-                        license = licenses,
-                    };
-                    return View(details);
-                }
-                else
+                if(User.Identity.IsAuthenticated)
                 {
-                    var details = new ProjectLicense
+                    var projects = _context.Project.Where(p => p.Id == id).FirstOrDefault();
+                    var licenses = _context.License.Where(l => l.Project_id == projects.Project_Id).FirstOrDefault();
+                    if (licenses != null)
                     {
-                        project = projects,
-                        license = null,
-                    };
-                    return View(details);
+                        var details = new ProjectLicense
+                        {
+                            project = projects,
+                            license = licenses,
+                        };
+                        return View(details);
+                    }
+                    else
+                    {
+                        var details = new ProjectLicense
+                        {
+                            project = projects,
+                            license = null,
+                        };
+                        return View(details);
+                    }
                 }
-
+                return NotFound();
             }
             catch (Exception ex)
             {
@@ -183,6 +209,93 @@ namespace Project_Management.Controllers
                 return View(TempData);
             }
             return View();
+        }
+        [HttpGet]
+        public IActionResult AddProjectUrl()
+        {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
+            if (User.Identity.IsAuthenticated)
+            {  
+                return View();
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public IActionResult AddProjectUrl(ProjectApiUrl model)
+        {
+            try
+            {
+                    var record = new ProjectApiUrl
+                    {
+                        Project_Id = model.Project_Id,
+                        Api_Url = model.Api_Url,
+                    };
+                    _context.ProjectApiUrl.Add(record);
+                    _context.SaveChanges();
+                    return RedirectToAction("GetPorject");
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = "An error occurred while while saving record in database.";
+                return View(TempData);
+            }
+        }
+        [HttpGet]
+        public IActionResult GetProjectsUrl()
+        {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
+            if (User.Identity.IsAuthenticated)
+            {
+                var data = _context.ProjectApiUrl.ToList();
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public IActionResult EditProjectUrl(int id) 
+        {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
+            try
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    var projecturl = _context.ProjectApiUrl.Where(p => p.id == id).FirstOrDefault();
+                    if (projecturl != null)
+                    {
+                        return View(projecturl);
+                    }
+                    return NotFound();
+                }
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = "An error occurred while retrieving project's url record.";
+                return View(TempData);
+            }
+        }
+        [HttpPost]
+        public IActionResult EditProjectUrl(ProjectApiUrl model)
+        {
+            try
+            {
+                var project = _context.ProjectApiUrl.Where(p => p.id == model.id).FirstOrDefault();
+                project.Project_Id = model.Project_Id;
+                project.Api_Url = model.Api_Url;
+                _context.SaveChanges();
+                return RedirectToAction("GetProjectsUrl");
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = "An error occurred while updating project url record.";
+                return View(TempData);
+            }
         }
     }
 }

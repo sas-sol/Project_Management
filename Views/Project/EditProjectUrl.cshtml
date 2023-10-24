@@ -1,0 +1,95 @@
+﻿@model Project_Management.Models.Projects.ProjectApiUrl
+@{
+    ViewData["Title"] = "AddProjectUrl";
+    Layout = "~/Views/Shared/_LayoutafterLogin.cshtml";
+}
+<script src="@Url.Content("~/js/particles.js")"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    #particles-js {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: #121423;
+    }
+
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+    /*body { background-image: url('path/to/your/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual image file path */ /*background-size: cover;*/ /* Adjust how the background image is displayed */ /* background-repeat: no-repeat;} */
+    .rounded-button {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%; /* Set border radius to 50% to create a circular button */
+        padding: 10px; /* Add padding for spacing within the circular button */
+    }
+
+    .custom-btn {
+        background-color: antiquewhite; /* Replace with your desired background color */
+        color: black; /* Replace with your desired text color */
+        /* Add any other custom styling you need */
+    }
+</style>
+<div id="particles-js">
+</div>
+<div class="container">
+    <div class="row mt-lg-5">
+        <div class="col-4 offset-4 border rounded p-lg-4" style="background-color: #e2642b; margin-top: 50px;">
+            <div class="text-center">
+            </div>
+            <form method="post" asp-action="EditProjectUrl">
+                <div class="form-group">
+                    <h6>Project Id</h6>
+                    <input type="text" asp-for="Project_Id" placeholder="Enter project id" class="form-control" autocomplete="off" />
+                </div>
+                <div><h5>  </h5></div>
+                <div class="form-group">
+                    <h6>Project Api Url</h6>
+                    <input type="text" asp-for="Api_Url" placeholder="Enter Api Url" class="form-control" autocomplete="off" />
+                </div>
+                <div><h2>  </h2></div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-dark float-lg-end" value="ADD" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    //document.addEventListener("DOMContentLoaded", function () {
+    // particlesJS initialization here...
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80
+            },
+            color: {
+                value: '#ffffff'
+            },
+            size: {
+                value: 3
+            }
+        },
+        interactivity: {
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'grab'
+                }
+            }
+        }
+    });
+
+            //});
+
+</script>

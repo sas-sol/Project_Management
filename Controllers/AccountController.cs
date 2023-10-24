@@ -23,6 +23,13 @@ namespace Project_Management.Controllers
         }
         public IActionResult Login()
         {
+            if(User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("GetPorject", "Project");
+            }
+            Response.Headers["Cache-Control"] = "no-cache, no-store";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
             return View();
 
         }

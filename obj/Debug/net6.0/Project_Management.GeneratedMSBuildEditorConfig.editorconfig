@@ -52,8 +52,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxBZGRQcm9qZWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Hp/source/repos/Project_Management/Project_Management/Views/Project/AddProjectUrl.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxBZGRQcm9qZWN0VXJsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hp/source/repos/Project_Management/Project_Management/Views/Project/EditProjectUrl.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0UHJvamVjdFVybC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Hp/source/repos/Project_Management/Project_Management/Views/Project/GetPorject.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxHZXRQb3JqZWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hp/source/repos/Project_Management/Project_Management/Views/Project/GetProjectsUrl.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxHZXRQcm9qZWN0c1VybC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Hp/source/repos/Project_Management/Project_Management/Views/Project/ProjectDetails.cshtml]
@@ -83,3 +95,7 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Hp/source/repos/Project_Management/Project_Management/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3me4d5n96b
+
+[C:/Users/Hp/source/repos/Project_Management/Project_Management/Views/Shared/_LayoutafterLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRhZnRlckxvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-mdamcie8r9

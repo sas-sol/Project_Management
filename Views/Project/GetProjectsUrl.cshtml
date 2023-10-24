@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Project_Management.Models.Projects.ProjectApiUrl>
+@{
+    ViewData["Title"] = "GetProject";
+    Layout = "~/Views/Shared/_LayoutafterLogin.cshtml";
+}
+
+<style>
+    body {
+        background-color: #121423;
+    }
+
+    .white-background {
+        color: white;
+    }
+
+    .table thead th:nth-child(1),
+    .table tbody td:nth-child(1) {
+        width: 40%;
+    }
+
+    .table thead th:nth-child(2),
+    .table tbody td:nth-child(2) {
+        width: 50%;
+    }
+
+    .table thead th:nth-child(3),
+    .table tbody td:nth-child(3) {
+        width: 10%; /* Adjust the value as needed */
+    }
+
+
+    .btn-color {
+        background-color: antiquewhite
+    }
+
+</style>
+<p>
+    <a asp-action="AddProjectUrl" class="btn btn-success">Add Project's Url</a>
+</p>
+<table class="table" id="dataTableData">
+    <thead>
+        <tr style="background-color: #e2642b">
+
+            <th>
+                @Html.DisplayNameFor(model => model.Project_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Api_Url)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="white-background">
+                    @Html.DisplayFor(modelItem => item.Project_Id)
+                </td>
+                <td class="white-background">
+                    @Html.DisplayFor(modelItem => item.Api_Url)
+                </td>
+                <td>
+                    <a asp-action="EditProjectUrl" asp-route-id="@item.id" class="btn btn-outline-light" title="Edit Project">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script src="~/js/datatable_file.js"></script>
+}
+

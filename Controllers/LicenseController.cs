@@ -21,14 +21,21 @@ namespace Project_Management.Controllers
         [HttpGet]
         public IActionResult AddLicense(int id)
         {
-            var project = _context.Project.Where( p=>p.Id == id).FirstOrDefault();
-           var license = _context.License.Where(l => l.Project_id == project.Project_Id).FirstOrDefault();
-            if(license != null)
-            {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
+            if (User.Identity.IsAuthenticated)
+           {
+                var project = _context.Project.Where(p => p.Id == id).FirstOrDefault();
+                var license = _context.License.Where(l => l.Project_id == project.Project_Id).FirstOrDefault();
+                if (license != null)
+                {
 
-                return RedirectToAction("UpdateLicense", new { id = license.Id });
-            }
-            return View();
+                    return RedirectToAction("UpdateLicense", new { id = license.Id });
+                }
+                return View();
+           }
+            return NotFound();
         }
         //Add license to database
         [HttpPost]
@@ -89,12 +96,19 @@ namespace Project_Management.Controllers
         [HttpGet]
         public IActionResult UpdateLicense(int id) 
         {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
             try
             {
-                var license = _context.License.Where(l => l.Id == id).FirstOrDefault();
-                if (license != null)
+                if (User.Identity.IsAuthenticated)
                 {
+                    var license = _context.License.Where(l => l.Id == id).FirstOrDefault();
+                    if (license != null)
+                    {
                     return View(license);
+                    }
+                return NotFound();
                 }
                 return NotFound();
             }
@@ -126,11 +140,13 @@ namespace Project_Management.Controllers
         [HttpGet]
         public async Task<IActionResult> GetLicense()
         {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "-1";
             try
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    
                     var license = await _context.License.ToListAsync();
                     return View(license);
                 }
