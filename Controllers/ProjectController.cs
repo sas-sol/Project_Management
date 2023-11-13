@@ -231,6 +231,7 @@ namespace Project_Management.Controllers
                     {
                         Project_Id = model.Project_Id,
                         Api_Url = model.Api_Url,
+                        Project_Id_MIS = model.Project_Id_MIS,
                     };
                     _context.ProjectApiUrl.Add(record);
                     _context.SaveChanges();
@@ -288,6 +289,7 @@ namespace Project_Management.Controllers
                 var project = _context.ProjectApiUrl.Where(p => p.id == model.id).FirstOrDefault();
                 project.Project_Id = model.Project_Id;
                 project.Api_Url = model.Api_Url;
+                project.Project_Id_MIS = model.Project_Id_MIS;
                 _context.SaveChanges();
                 return RedirectToAction("GetProjectsUrl");
             }
