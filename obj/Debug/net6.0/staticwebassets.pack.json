@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\images\\istockphoto-1341104538-612x612.jpg"
     },
     {
+      "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\images\\plogo.jpg",
+      "PackagePath": "staticwebassets\\images\\plogo.jpg"
+    },
+    {
       "Id": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\js\\app.js",
       "PackagePath": "staticwebassets\\js\\app.js"
     },

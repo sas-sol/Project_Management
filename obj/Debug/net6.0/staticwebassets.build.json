@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mRFcjYV0da2Xtv04TvpjIH/Jfqs32kbU7OkYBHh5ObU=",
+  "Hash": "CbN6Q5Sz87jaV0rqA8s1bb3AzP5MFty/6mkidbRyCws=",
   "Source": "Project_Management",
   "BasePath": "_content/Project_Management",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\istockphoto-1341104538-612x612.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\images\\plogo.jpg",
+      "SourceId": "Project_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Management",
+      "RelativePath": "images/plogo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\plogo.jpg"
     },
     {
       "Identity": "C:\\Users\\Hp\\source\\repos\\Project_Management\\Project_Management\\wwwroot\\js\\app.js",

@@ -22,7 +22,9 @@ builder.Services.AddSession(option =>
     option.Cookie.IsEssential = true;
 });
 
+
 builder.Services.AddControllersWithViews();
+
 
 var app = builder.Build();
 
@@ -41,7 +43,6 @@ app.UseRouting();
 app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
-
 
 
 app.MapControllerRoute(
