@@ -52,7 +52,7 @@ namespace Project_Management.Controllers.ApiController
 
         }
         [HttpGet("GetUrl/{id}")]
-        public IActionResult GetUrl(int id)
+        public IActionResult GetUrl(string id)
         {
            try
             {
