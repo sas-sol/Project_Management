@@ -59,7 +59,7 @@ namespace Project_Management.Controllers.ApiController
                 var data = _context.ProjectApiUrl.Where(p => p.Project_Id_MIS == id).FirstOrDefault();
                 if (data != null)
                 {
-                    string url = data.Project_Id_MIS +  "," + data.Project_Id + "," + data.Api_Url;
+                    string url = data.Project_Id + "," + data.Api_Url;
                     return Content(url);
                 }
 
