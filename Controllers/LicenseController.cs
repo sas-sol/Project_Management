@@ -53,12 +53,7 @@ namespace Project_Management.Controllers
                 if (User.Identity.IsAuthenticated)
                 {
                     // add new record of project
-                    var data = new License
-                    {
-                       Project_id = project.Project_Id,
-                       Name = model.Name,
-                       Expiry_Date = model.Expiry_Date,
-                    };
+                    var data = new License(model, project.Project_Id);
                     _context.Add(data);
                     _context.SaveChanges();
                     return RedirectToAction("GetPorject","Project");

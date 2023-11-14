@@ -11,5 +11,14 @@ namespace Project_Management.Models.Projects
         public string Project_id { get; set; }
         [Display(Name = "Expiry Date")]
         public DateTime Expiry_Date { get; set; }
+        
+        public License()
+        {}
+        public License(License model, string projetId)
+        {
+            Project_id = projetId;
+            Name = model.Name;
+            Expiry_Date = model.Expiry_Date;
+        }
     }
 }

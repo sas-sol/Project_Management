@@ -47,18 +47,8 @@ namespace Project_Management.Controllers
                 }
                 int userId1;
                 int.TryParse(userId, out userId1);
-                // call the random function and store the random value in variable
-                Random rand = new Random();
-                int randomNumber = rand.Next(100, 1000); // Generates a random number between 100 and 999
                 // add new record of project
-                var data = new Project
-                {
-                    Project_Id = "pro" + randomNumber.ToString(),
-                    Project_name = model.Project_name,
-                    Description = model.Description,
-                    Start_Date = model.Start_Date,
-                    User_Id = userId1,
-                };
+                var data = new Project(model, userId1);
                 _context.Add(data);
                 _context.SaveChanges();
                 return RedirectToAction("GetPorject");
@@ -227,12 +217,7 @@ namespace Project_Management.Controllers
         {
             try
             {
-                    var record = new ProjectApiUrl
-                    {
-                        Project_Id = model.Project_Id,
-                        Api_Url = model.Api_Url,
-                        Project_Id_MIS = model.Project_Id_MIS,
-                    };
+                var record = new ProjectApiUrl(model);
                     _context.ProjectApiUrl.Add(record);
                     _context.SaveChanges();
                     return RedirectToAction("GetPorject");
